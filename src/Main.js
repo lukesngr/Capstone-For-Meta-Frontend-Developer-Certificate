@@ -7,7 +7,6 @@ function Main() {
         <div id="imageDiv">
             <img id="tablePicture" src="table.jpg"></img>
         </div>
-        <h1>Reserve a table</h1>
         <BookingsForm></BookingsForm>
     </main>)
 }

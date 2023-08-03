@@ -10,7 +10,11 @@ footer ul li {
     display: block;
 }
 
-footer div ul li{
+footer div ul li {
+    font-family: 'Karla';
+}
+
+footer div b {
     font-family: 'Karla';
 }
 
