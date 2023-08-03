@@ -1,0 +1,11 @@
+#tablePicture {
+    width: 50%;
+    margin-left: 27vw;
+    display: block;
+}
+
+#imageDiv {
+    background-color: #495E57;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}

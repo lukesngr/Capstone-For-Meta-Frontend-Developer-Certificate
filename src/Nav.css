@@ -1,0 +1,25 @@
+nav ul {
+    display: flex;
+    margin-top: none;
+    gap: 5vw;
+}
+
+nav ul li {
+    list-style-type: none;
+}
+
+nav ul li a {
+    color: black;
+    font-family: 'Markazi Text';
+    font-size: 1.4em;
+}
+
+nav ul li:has(a) {
+    margin-top: 1vh;
+}
+
+nav {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}

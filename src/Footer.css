@@ -1,0 +1,12 @@
+footer {
+    background-color: #333333;
+    padding-left: 27vw;
+}
+
+footer ul li {
+    display: block;
+}
+
+footer ul li a{
+    font-family: 'Karla';
+}
