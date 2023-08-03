@@ -1,12 +1,19 @@
 footer {
     background-color: #333333;
     padding-left: 27vw;
+    display: flex;
+    gap: 5vw;
+    padding-top: 2vw;
 }
 
 footer ul li {
     display: block;
 }
 
-footer ul li a{
+footer div ul li{
     font-family: 'Karla';
+}
+
+footer ul {
+    padding-left: 0;
 }
