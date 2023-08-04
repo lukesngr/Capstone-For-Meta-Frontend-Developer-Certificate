@@ -1,14 +1,18 @@
 import './App.css';
-import Nav from './Nav';
-import Footer from './Footer';
-import Main from './Main';
+import ConfirmedBookings from './ConfirmedBookings';
+import TableReservation from './TableReservation';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <>
-      <Nav></Nav>
-      <Main></Main>
-      <Footer></Footer>
+      <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<TableReservation />}></Route>
+        <Route path="/confirmed" element={<ConfirmedBookings></ConfirmedBookings>}></Route>
+      </Routes>
+    </BrowserRouter>
+      <TableReservation></TableReservation>
     </>
   );
 }
