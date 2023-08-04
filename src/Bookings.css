@@ -7,16 +7,17 @@
 #bookingsTable p:nth-child(even) {
     background-color: #495E57;
     color: white;
-    font-size: large;
+    font-size: larger;
 }
 
 #bookingsTable p:nth-child(odd) {
     background-color: #F4CE14;
-    font-size: large;
+    font-size: larger;
 }
 
 #bookingsTable p {
     font-family: 'Karla';
     margin-top: 0;
     margin-bottom: 0;
+    width: 70%;
 }
