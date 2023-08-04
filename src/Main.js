@@ -2,6 +2,7 @@ import BookingsForm from "./BookingsForm";
 import Bookings from "./Bookings"
 import './Main.css';
 import { useState, useReducer } from "react";
+import { Redirect } from 'react-router';
 
 function initalizeTimes(date) { 
     return fetchAPI(date); 
@@ -35,4 +36,4 @@ function Main() {
 }
 
 export default Main;
-export {initalizeTimes, updateTimes};
+export {initalizeTimes};
