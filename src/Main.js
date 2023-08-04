@@ -1,7 +1,7 @@
 import BookingsForm from "./BookingsForm";
 import Bookings from "./Bookings"
 import './Main.css';
-import { useState, useReducer } from "react";
+import { useState, useReducer, useEffect } from "react";
 import { Redirect } from 'react-router';
 
 function initalizeTimes(date) { 
@@ -22,8 +22,12 @@ function Main() {
         }
         return state;
     }
+
+    let initialData = "";
+
+    useEffect(() => {initialData = initalizeTimes(new Date)}, []);
     
-    const [availableTimes, dispatch] = useReducer(updateTimes, initalizeTimes(new Date()));
+    const [availableTimes, dispatch] = useReducer(updateTimes, initialData);
     return (
     <main>
         <div id="imageDiv">
