@@ -41,7 +41,7 @@ function BookingsForm(props) {
                 <option>Birthday</option>
                 <option>Anniversary</option>
             </select>
-            <input id="submitButton" data-testid="submitButton" type="submit" value="Make Your Reservation"></input>
+            <input id="submitButton" data-testid="submitButton" type="submit" aria-label="Reserve" value="Make Your Reservation"></input>
         </form>
     </>)
 }
