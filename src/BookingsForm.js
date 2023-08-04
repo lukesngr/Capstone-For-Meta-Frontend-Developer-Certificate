@@ -24,9 +24,9 @@ function BookingsForm(props) {
         <form id="reservationForm" onSubmit={handleSubmit}  aria-label="Reserve a table">
             <h1>Reserve a table</h1>
             <label htmlFor="res-date">Choose date</label>
-            <input type="date" id="res-date" value={date} onChange={onDateChange}></input>
+            <input type="date" id="res-date" value={date} onChange={onDateChange} required></input>
             <label htmlFor="res-time">Choose time</label>
-            <select id="res-time "  value={time} onChange={(e) => setTime(e.target.value)}>
+            <select id="res-time "  value={time} onChange={(e) => setTime(e.target.value)} required>
                 <option>17:00</option>
                 <option>18:00</option>
                 <option>19:00</option>
@@ -35,9 +35,9 @@ function BookingsForm(props) {
                 <option>22:00</option>
             </select>
             <label htmlFor="guests">Number of guests</label>
-            <input type="number" placeholder="1" min="1" max="10" id="guests" value={numberOfGuests} onChange={(e) => setNumberOfGuests(e.target.value)}></input>
+            <input type="number" placeholder="1" min="1" max="10" id="guests" value={numberOfGuests} onChange={(e) => setNumberOfGuests(e.target.value)} required></input>
             <label htmlFor="occasion">Occasion</label>
-            <select id="occasion" value={occasion} onChange={(e) => setOccasion(e.target.value)}>
+            <select id="occasion" value={occasion} onChange={(e) => setOccasion(e.target.value)} required>
                 <option>Birthday</option>
                 <option>Anniversary</option>
             </select>
