@@ -3,13 +3,20 @@ import './Main.css';
 import { useState, useReducer } from "react";
 
 function updateTimes(state, action) {
-    let copyOfState = state;
-    copyOfState.push(action);
-    return copyOfState;
+    if(action.type === "add") {
+        if(state.findIndex(dateTimeSlot => dateTimeSlot.date === action.date) == -1) {
+            state.push({date: action.date, times: action.times})
+        }
+    }else if(action.type === "delete") {
+        let bookingTimeSlotIndex = state.findIndex(dateTimeSlot => dateTimeSlot.date === action.date);
+        let indexOfTimeToBeDeleted = state[bookingTimeSlotIndex].times.indexOf(action.time);
+        state[bookingTimeSlotIndex].times.splice(indexOfTimeToBeDeleted, 1);
+    }
+    return state;
 }
 
-function Main() { 
-    const [unavailableTimes, dispatch] = useReducer(updateTimes, []);
+function Main() {
+    const [availableTimes, dispatch] = useReducer(updateTimes, []);
     return (
     <main>
         <div id="imageDiv">

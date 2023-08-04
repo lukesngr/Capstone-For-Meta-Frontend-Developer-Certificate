@@ -3,22 +3,27 @@ import './BookingsForm.css';
 
 function BookingsForm(props) {
 
-    const [date, setDate] = useState(null);
+    const [date, setDate] = useState(0);
     const [time, setTime] = useState("17:00");
     const [numberOfGuests, setNumberOfGuests] = useState(1);
     const [occasion, setOccasion] = useState("Birthday");
 
     function handleSubmit(event) {
         event.preventDefault();
-        props.updateTimes({date: date, time: time});
+        props.updateTimes({type: "delete", date: date, time: time});
+    }
+
+    function onDateChange(e) {
+        setDate(e.target.value);
+        props.updateTimes({type: "add", date: e.target.value, times: ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"]})
     }
 
     return (
     <>
-        <form id="reservationForm" onSubmit={handleSubmit}>
+        <form id="reservationForm" onSubmit={handleSubmit}  aria-label="Reserve a table">
             <h1>Reserve a table</h1>
             <label htmlFor="res-date">Choose date</label>
-            <input type="date" id="res-date" value={date} onChange={(e) => setDate(e.target.value)}></input>
+            <input type="date" id="res-date" value={date} onChange={onDateChange}></input>
             <label htmlFor="res-time">Choose time</label>
             <select id="res-time "  value={time} onChange={(e) => setTime(e.target.value)}>
                 <option>17:00</option>
