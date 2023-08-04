@@ -3,6 +3,8 @@ import Bookings from "./Bookings"
 import './Main.css';
 import { useState, useReducer } from "react";
 
+function initalizeTimes() { return [] }
+
 function updateTimes(state, action) {
     if(action.type === "add") {
         if(state.findIndex(dateTimeSlot => dateTimeSlot.date === action.date) == -1) {
@@ -18,7 +20,7 @@ function updateTimes(state, action) {
 
 function Main() {
     const [currentDate, setCurrentDate] = useState(false);
-    const [availableTimes, dispatch] = useReducer(updateTimes, []);
+    const [availableTimes, dispatch] = useReducer(updateTimes, initalizeTimes());
     return (
     <main>
         <div id="imageDiv">
@@ -30,3 +32,4 @@ function Main() {
 }
 
 export default Main;
+export {initalizeTimes, updateTimes};
