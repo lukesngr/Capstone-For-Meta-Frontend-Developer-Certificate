@@ -1,4 +1,5 @@
 import BookingsForm from "./BookingsForm";
+import Bookings from "./Bookings"
 import './Main.css';
 import { useState, useReducer } from "react";
 
@@ -16,13 +17,15 @@ function updateTimes(state, action) {
 }
 
 function Main() {
+    const [currentDate, setCurrentDate] = useState(false);
     const [availableTimes, dispatch] = useReducer(updateTimes, []);
     return (
     <main>
         <div id="imageDiv">
             <img id="tablePicture" src="table.jpg"></img>
         </div>
-        <BookingsForm updateTimes={dispatch}></BookingsForm>
+        {currentDate && <Bookings currentDate={currentDate} availableTimes={availableTimes}></Bookings>}
+        <BookingsForm updateTimes={dispatch} setCurrentDate={setCurrentDate}></BookingsForm>
     </main>)
 }
 

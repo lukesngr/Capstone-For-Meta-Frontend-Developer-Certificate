@@ -15,6 +15,7 @@ function BookingsForm(props) {
 
     function onDateChange(e) {
         setDate(e.target.value);
+        props.setCurrentDate(e.target.value);
         props.updateTimes({type: "add", date: e.target.value, times: ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"]})
     }
 

@@ -1,0 +1,22 @@
+#bookingsTable {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#bookingsTable p:nth-child(even) {
+    background-color: #495E57;
+    color: white;
+    font-size: large;
+}
+
+#bookingsTable p:nth-child(odd) {
+    background-color: #F4CE14;
+    font-size: large;
+}
+
+#bookingsTable p {
+    font-family: 'Karla';
+    margin-top: 0;
+    margin-bottom: 0;
+}
