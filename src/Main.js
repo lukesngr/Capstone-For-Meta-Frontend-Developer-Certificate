@@ -3,24 +3,23 @@ import Bookings from "./Bookings"
 import './Main.css';
 import { useState, useReducer } from "react";
 
-function initalizeTimes() { return [] }
+function initalizeTimes(date) { 
+    return fetchAPI(date); 
+}
 
 function updateTimes(state, action) {
     if(action.type === "add") {
-        if(state.findIndex(dateTimeSlot => dateTimeSlot.date === action.date) == -1) {
-            state.push({date: action.date, times: action.times})
-        }
+        state = initalizeTimes(action.date);
     }else if(action.type === "delete") {
-        let bookingTimeSlotIndex = state.findIndex(dateTimeSlot => dateTimeSlot.date === action.date);
-        let indexOfTimeToBeDeleted = state[bookingTimeSlotIndex].times.indexOf(action.time);
-        state[bookingTimeSlotIndex].times.splice(indexOfTimeToBeDeleted, 1);
+        const {type, ...rest} = action;
+        submitAPI(rest);
     }
     return state;
 }
 
 function Main() {
     const [currentDate, setCurrentDate] = useState(false);
-    const [availableTimes, dispatch] = useReducer(updateTimes, initalizeTimes());
+    const [availableTimes, dispatch] = useReducer(updateTimes, initalizeTimes(new Date()));
     return (
     <main>
         <div id="imageDiv">
