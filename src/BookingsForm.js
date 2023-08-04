@@ -1,19 +1,25 @@
 import { useState } from 'react';
 import './BookingsForm.css';
 
-function BookingsForm() {
+function BookingsForm(props) {
 
     const [date, setDate] = useState(null);
-    const [time, setTime] = useState(null);
-    const [numberOfGuests, setNumberOfGuests] = useState(null);
-    const [occasion, setOccasion] = useState(null);
+    const [time, setTime] = useState("17:00");
+    const [numberOfGuests, setNumberOfGuests] = useState(1);
+    const [occasion, setOccasion] = useState("Birthday");
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        props.updateTimes({date: date, time: time});
+    }
+
     return (
     <>
-        <form id="reservationForm">
+        <form id="reservationForm" onSubmit={handleSubmit}>
             <h1>Reserve a table</h1>
-            <label for="res-date">Choose date</label>
+            <label htmlFor="res-date">Choose date</label>
             <input type="date" id="res-date" value={date} onChange={(e) => setDate(e.target.value)}></input>
-            <label for="res-time">Choose time</label>
+            <label htmlFor="res-time">Choose time</label>
             <select id="res-time "  value={time} onChange={(e) => setTime(e.target.value)}>
                 <option>17:00</option>
                 <option>18:00</option>
@@ -22,9 +28,9 @@ function BookingsForm() {
                 <option>21:00</option>
                 <option>22:00</option>
             </select>
-            <label for="guests">Number of guests</label>
+            <label htmlFor="guests">Number of guests</label>
             <input type="number" placeholder="1" min="1" max="10" id="guests" value={numberOfGuests} onChange={(e) => setNumberOfGuests(e.target.value)}></input>
-            <label for="occasion">Occasion</label>
+            <label htmlFor="occasion">Occasion</label>
             <select id="occasion" value={occasion} onChange={(e) => setOccasion(e.target.value)}>
                 <option>Birthday</option>
                 <option>Anniversary</option>
